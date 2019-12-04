@@ -2,6 +2,7 @@ package com.lp.pages;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -96,24 +97,32 @@ public class LoginPage {
 					//File f2 = new File("C:\\Users\\vraja\\Downloads\\user.csv");
 	
 					File f2= new File(downloadPath+"\\"+dirContents[i].getName());
-					System.out.println(f2);
+					//System.out.println(f2);
 					String downloadPathcsv = f2.getPath();
 					Path path = Paths.get(downloadPathcsv); 
-					System.out.println(path);
+					//System.out.println(path);
 					// call getFileName() and get FileName path object 
 					Path fileName = path.getFileName(); 
-					System.out.println(fileName.toString());
-					CSVReader reader = new CSVReader(new FileReader(downloadPathcsv));
+					//System.out.println(fileName.toString());
+					CSVReader reader = null;
+					//CSVReader reader = new CSVReader(new FileReader(downloadPathcsv));
+					try
+					{
+					reader = new CSVReader(new FileReader(downloadPathcsv));
 					String [] nextLine;
 					while ((nextLine = reader.readNext()) != null) {
 						System.out.println("Value 1 : "+nextLine[0]);	 
 
 
 						//dirContents[i].delete();
-						System.out.println("It is deleted successfully");
+						//System.out.println("It is deleted successfully");
 
-						break;
+						//break;
 					}
+					}
+					catch (IOException e) {
+			            e.printStackTrace();
+			        }
 				}
 			}} catch (Exception e) {
 				e.getMessage();
