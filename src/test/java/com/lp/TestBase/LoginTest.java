@@ -15,6 +15,8 @@ public class LoginTest {
 		loginobj.verifyTitle();
 		loginobj.userdetails();
 		loginobj.isFileDownloaded();
+		
+		
 	}
 	
 

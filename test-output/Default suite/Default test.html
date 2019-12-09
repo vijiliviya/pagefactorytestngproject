@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Dec 04 12:13:41 IST 2019</td>
+<td>Started on:</td><td>Mon Dec 09 15:41:52 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>5 seconds (5079 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (125 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,11 +77,12 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.lp.TestBase.LoginTest.logintest()'><b>logintest</b><br>Test class: com.lp.TestBase.LoginTest</td>
 <td><div><pre>java.lang.NullPointerException
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy7.isEnabled(Unknown Source)
-	at com.lp.common.WrapperClass.clickbtn(WrapperClass.java:34)
-	at com.lp.pages.LoginPage.logindetails(LoginPage.java:42)
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:45)
+	at com.lp.common.WrapperClass.clickOn(WrapperClass.java:61)
+	at com.lp.pages.LoginPage.logindetails(LoginPage.java:59)
 	at com.lp.TestBase.LoginTest.logintest(LoginTest.java:14)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -108,13 +109,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1511785794", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1511785794'><pre>java.lang.NullPointerException
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy7.isEnabled(Unknown Source)
-	at com.lp.common.WrapperClass.clickbtn(WrapperClass.java:34)
-	at com.lp.pages.LoginPage.logindetails(LoginPage.java:42)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1045941616", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1045941616'><pre>java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:45)
+	at com.lp.common.WrapperClass.clickOn(WrapperClass.java:61)
+	at com.lp.pages.LoginPage.logindetails(LoginPage.java:59)
 	at com.lp.TestBase.LoginTest.logintest(LoginTest.java:14)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -142,8 +144,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
 </pre></div></td>
-<td>5</td>
-<td>com.lp.TestBase.LoginTest@20e2cbe0</td></tr>
+<td>0</td>
+<td>com.lp.TestBase.LoginTest@51565ec2</td></tr>
 </table><p>
 </body>
 </html>

@@ -2,18 +2,18 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="153587" started-at="2019-12-05T12:24:04Z" finished-at="2019-12-05T12:26:38Z">
+  <suite name="Suite" duration-ms="75279" started-at="2019-12-09T11:47:53Z" finished-at="2019-12-09T11:49:09Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="153587" started-at="2019-12-05T12:24:04Z" finished-at="2019-12-05T12:26:38Z">
+    <test name="Test" duration-ms="75279" started-at="2019-12-09T11:47:53Z" finished-at="2019-12-09T11:49:09Z">
       <class name="com.lp.TestBase.BaseTest">
-        <test-method status="PASS" signature="openbrowesertest()[pri:0, instance:com.lp.TestBase.BaseTest@1593948d]" name="openbrowesertest" duration-ms="15720" started-at="2019-12-05T17:54:04Z" finished-at="2019-12-05T17:54:20Z">
+        <test-method status="PASS" signature="openbrowesertest()[pri:0, instance:com.lp.TestBase.BaseTest@1593948d]" name="openbrowesertest" duration-ms="15414" started-at="2019-12-09T17:17:53Z" finished-at="2019-12-09T17:18:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openbrowesertest -->
       </class> <!-- com.lp.TestBase.BaseTest -->
       <class name="com.lp.TestBase.LoginTest">
-        <test-method status="PASS" signature="logintest()[pri:0, instance:com.lp.TestBase.LoginTest@4cc0edeb]" name="logintest" duration-ms="137846" started-at="2019-12-05T17:54:20Z" finished-at="2019-12-05T17:56:38Z">
+        <test-method status="PASS" signature="logintest()[pri:0, instance:com.lp.TestBase.LoginTest@4cc0edeb]" name="logintest" duration-ms="59846" started-at="2019-12-09T17:18:09Z" finished-at="2019-12-09T17:19:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintest -->

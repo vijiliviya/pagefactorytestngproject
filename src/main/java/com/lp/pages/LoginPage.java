@@ -25,7 +25,8 @@ import com.opencsv.CSVReader;
 import junit.framework.Assert;
 
 public class LoginPage {
-	static WebDriver driver;
+	static WebDriver driver,tempdriver;
+	public static String parentWindow;
 	public LoginPage()
 	{
 		driver=BaseClass.returndriver();
@@ -45,29 +46,28 @@ public class LoginPage {
 	WebElement exportlink;
 	@FindBy(xpath="//button[text()='Yes']")
 	WebElement yesbutton;
-	@FindBy(xpath="//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")
-	WebElement loginbutton;
-	@FindBy(xpath="//input[@name='email']")
-	WebElement emailaddresstxtbox;
+	By loginbutton=By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']");
+	By emailaddresstxtbox=By.xpath("//input[@name='email']");
+	//@FindBy(xpath="//input[@name='email']")
+	//WebElement emailaddresstxtbox;
 	@FindBy(xpath="//input[@name='password']")
 	WebElement passwordtxtbox;
 
 	public void logindetails() throws InterruptedException
 	{
-		Thread.sleep(5000);
-		WrapperClass.clickbtn(loginimage);
-		WrapperClass.txtbox(username,commonclass.usenamevalue);
-		WrapperClass.clickbtn(nextbutton);
-		Thread.sleep(2000);
-		WrapperClass.txtbox(password,commonclass.passwordvalue);
-		Thread.sleep(2000);
-		WrapperClass.clickbtn(nextbutton);
-		Thread.sleep(10000);
+		//Thread.sleep(5000);
+		//WrapperClass.clickbtn(loginimage);
+		WrapperClass.clickOn(driver, loginimage, 20);
+		//WrapperClass.txtbox(username,commonclass.usenamevalue);
+		WrapperClass.texton(driver, username, 20, commonclass.usenamevalue);
+		WrapperClass.clickOn(driver, nextbutton, 30);
+		WrapperClass.texton(driver, password, 60, commonclass.passwordvalue);
+		WrapperClass.clickOn(driver, nextbutton, 40);
+		}
 
-	}
-
-	public void verifyTitle()
+	public void verifyTitle() throws InterruptedException
 	{
+		Thread.sleep(3000);
 		String ActualTitle= driver.getTitle();
 		System.out.println("Title of the Page is "+ActualTitle);
 		Assert.assertEquals("LolliandPops", ActualTitle);
@@ -76,13 +76,14 @@ public class LoginPage {
 
 	public void userdetails() throws InterruptedException
 	{
-		
-		WrapperClass.clickbtn(userlink);
-		WrapperClass.clickbtn(exportlink);
-		WrapperClass.clickbtn(yesbutton);
-		Thread.sleep(15000);
-
-	}
+		parentWindow = driver.getWindowHandle();
+		System.out.println("This is parent window: "+parentWindow);
+		WrapperClass.clickOn(driver, userlink, 20);
+		WrapperClass.clickOn(driver, exportlink, 20);
+		Thread.sleep(5000);
+		WrapperClass.clickOn(driver, yesbutton, 20);
+		Thread.sleep(5000);
+}
 
 	public boolean isFileDownloaded()
 	{
@@ -128,44 +129,70 @@ public class LoginPage {
 							//driver.close();
 							Thread.sleep(2000);
 							System.setProperty("webdriver.chrome.driver", "C:\\Users\\vraja\\workspace\\FinalTesting\\Drivers\\chromedriver.exe");
-							driver = new ChromeDriver();
-							driver.get("https://freecrm.co.in/");
-							driver.manage().window().maximize();
-							driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+							tempdriver = new ChromeDriver();
+							tempdriver.get("https://freecrm.co.in/");
+							tempdriver.manage().window().maximize();
+							tempdriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 							Thread.sleep(3000);
-							switchToWindow(1);
-							 System.out.println(driver.getTitle());
-														
-							driver.findElement(By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")).click();
-							 //loginbutton.click();
-							
+							Set<String> handles = tempdriver.getWindowHandles();
+							for(String curWindow : handles){
+								System.out.println(curWindow.toString());
+								tempdriver.switchTo().window(curWindow);
+							    System.out.println(curWindow.toString());
+							}
+							//switchToWindow(1);
+//							Set<String> handles = driver.getWindowHandles();
+//							String winHandle = handles.iterator().next();
+//							if (winHandle != "somewindow") {
+//								//String secondWinHandle = winHandle;
+//								driver.switchTo().window(parentWindow);
+//								System.out.println("Switching to parent window: "+winHandle);
+//								driver.switchTo().defaultContent();
+//							}
+							//System.out.println(driver.getTitle());
+
+							//driver.findElement(By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")).click();
+							tempdriver.findElement(loginbutton).click();
+
 							Thread.sleep(6000);
 							//emailaddresstxtbox.click();
 							//WrapperClass.txtbox(emailaddresstxtbox, nextLine[0]);
 							//WrapperClass.clickbtn(emailaddresstxtbox);
 							//WrapperClass.txtbox(emailaddresstxtbox, nextLine[0]);
-							driver.findElement(By.xpath("//input[@name='email']")).click();
-							driver.findElement(By.xpath("//input[@name='email']")).sendKeys(nextLine[0]);
+							tempdriver.findElement(emailaddresstxtbox).click();
+							tempdriver.findElement(emailaddresstxtbox).sendKeys(nextLine[0]);
 							System.out.println(nextLine[0]);
-							//driver.close();
+				
+							//tempdriver.close();
+							//Thread.sleep(2000);
+							//driver.switchTo().window(parentWindow);
+							//driver.switchTo().defaultContent();
+							//System.out.println(driver.getTitle());
+							//driver.findElement(By.xpath("//a[text()='Import']")).click();
+							//break;
+							
+
+							//switchToWindow(1);
 							//dirContents[i].delete();
 							//System.out.println("It is deleted successfully");
-//							driver.switchTo().defaultContent();
-//							System.out.println(driver.getTitle());
-//							break;
+							//							driver.switchTo().defaultContent();
+							//							System.out.println(driver.getTitle());
+							//							break;
 						}
 						
+						
+
 					}
-					
+
 					catch (IOException e) {
 						e.printStackTrace();
 					}
 				}
 			}
-			} catch (Exception e) {
+		} catch (Exception e) {
 
-				e.getMessage();
-			}
+			e.getMessage();
+		}
 		return false;
 
 	}
