@@ -48,10 +48,11 @@ public class LoginPage {
 	WebElement yesbutton;
 	By loginbutton=By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']");
 	By emailaddresstxtbox=By.xpath("//input[@name='email']");
+	By passwordtxtbox=By.xpath("//input[@name='password']");
 	//@FindBy(xpath="//input[@name='email']")
 	//WebElement emailaddresstxtbox;
-	@FindBy(xpath="//input[@name='password']")
-	WebElement passwordtxtbox;
+	//@FindBy(xpath="//input[@name='password']")
+	//WebElement passwordtxtbox;
 
 	public void logindetails() throws InterruptedException
 	{
@@ -125,6 +126,7 @@ public class LoginPage {
 								continue;
 							}
 							System.out.println("Value 1 : "+nextLine[0]);
+							System.out.println("Value 1 : "+nextLine[1]);
 							Thread.sleep(2000);
 							//driver.close();
 							Thread.sleep(2000);
@@ -161,9 +163,12 @@ public class LoginPage {
 							//WrapperClass.txtbox(emailaddresstxtbox, nextLine[0]);
 							tempdriver.findElement(emailaddresstxtbox).click();
 							tempdriver.findElement(emailaddresstxtbox).sendKeys(nextLine[0]);
-							System.out.println(nextLine[0]);
+							System.out.println(nextLine[0]); 
+							tempdriver.findElement(passwordtxtbox).click();
+							tempdriver.findElement(passwordtxtbox).sendKeys(nextLine[1]);
+							System.out.println(nextLine[1]); 
 				
-							//tempdriver.close();
+							tempdriver.close();
 							//Thread.sleep(2000);
 							//driver.switchTo().window(parentWindow);
 							//driver.switchTo().defaultContent();

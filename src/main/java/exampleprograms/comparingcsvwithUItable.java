@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.FindBy;
 
 public class comparingcsvwithUItable {
@@ -43,6 +44,9 @@ public class comparingcsvwithUItable {
 	Thread.sleep(3000);
 	int noOfEntries = getNumberOfEntries();
 	System.out.println(noOfEntries);
+	String button= driver.findElement(By.xpath("//div[@class='ui-grid-render-container ng-isolate-scope ui-grid-render-container-body']//div[@class='ui-grid-header custom-ui-grid-header ng-scope']//child::div//child::span")).getText();
+	System.out.println(button);
+	
 	}
 	
 public static int getNumberOfEntries() {
